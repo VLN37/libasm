@@ -5,7 +5,7 @@
 ;     nasm -felf64 hello.asm && ld hello.o && ./a.out
 ; ----------------------------------------------------------------------------------------
 
-%include "../syscalls_x64.asm"
+%include "syscalls_x64.asm"
 
 section   .text
     global    hello_world
