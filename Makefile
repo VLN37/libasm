@@ -29,6 +29,6 @@ fclean: clean
 
 re: fclean all
 
-test:
+test: all
 	gcc examples/main_hello.c -lasm -L. && ./a.out && rm a.out
 

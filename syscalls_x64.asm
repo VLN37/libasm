@@ -13,4 +13,11 @@
 %define __EXECVE 59
 %define __EXIT 60
 
+%define __STDIN 0
+%define __STDOUT 1
+%define __STDERR 2
+
+%define EXIT_SUCCESS 0
+%define EXIT_FAILURE 1
+
 %endif

@@ -13,13 +13,12 @@ section   .text
 
 hello_world:
     mov       rax, __WRITE            ; system call for write
-    mov       rdi, 1                  ; file handle 1 is stdout
+    mov       rdi, __STDOUT           ; file handle 1 is stdout
     mov       rsi, message            ; address of string to output
     mov       rdx, 13                 ; number of bytes
     syscall                           ; invoke operating system to do the write
-    mov       rax, __EXIT             ; system call for exit
-    xor       rdi, rdi                ; exit code 0
-    syscall                           ; invoke operating system to exit
+    mov       rax, EXIT_SUCCESS       ; signify success / same as doing nothing
+    ret
 
 section   .data
 message:
