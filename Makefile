@@ -3,12 +3,13 @@ CFLAGS	= -felf64
 NAME 	= libasm.a
 
 SRC		= hello.asm \
+		  ft_strlen.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
 INCLUDES= ./
 
-vpath %.asm examples
+vpath %.asm src examples
 
 all: $(NAME)
 
