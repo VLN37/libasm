@@ -19,5 +19,6 @@
 
 %define EXIT_SUCCESS 0
 %define EXIT_FAILURE 1
+%define NULL 0x0
 
 %endif

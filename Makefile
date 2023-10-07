@@ -5,6 +5,7 @@ NAME 	= libasm.a
 SRC		= hello.asm \
 		  ft_strlen.asm \
 		  ft_strcpy.asm \
+		  ft_strcmp.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
@@ -32,4 +33,4 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc tests/main.c -lasm -L. && ./a.out && rm a.out
+	gcc -g3 tests/main.c -lasm -L. && ./a.out

@@ -6,13 +6,17 @@
 extern void hello_world();
 extern int ft_strlen();
 extern char *ft_strcpy();
+extern int ft_strcmp();
+
 void test_strlen();
 void test_strcpy();
+void test_strcmp();
 
 int main(void) {
     hello_world();
     test_strlen();
     test_strcpy();
+    test_strcmp();
 }
 
 void test_strlen(void) {
@@ -59,8 +63,12 @@ void test_strcpy(void) {
     strcpy(dst2, src2);
     assert(strcmp(dst2, dst1) == 0);
     assert(*src1 == '\0');
+}
 
-    printf("%d\n", strcmp("asd", "asdf"));
-    printf("%d\n", strcmp("asdf", "asd"));
-    printf("%d\n", strcmp("asdf", "asdf"));
+void test_strcmp(void) {
+    assert(ft_strcmp("a", "a") == 0);
+    assert(ft_strcmp("ab", "a") > 0);
+    assert(ft_strcmp("a", "ab") < 0);
+    assert(ft_strcmp("a", "b") < 0);
+    assert(ft_strcmp("b", "a") > 0);
 }
