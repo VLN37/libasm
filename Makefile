@@ -1,5 +1,5 @@
 CC		= nasm
-CFLAGS	= -felf64
+CFLAGS	= -felf64 -F dwarf -g
 NAME 	= libasm.a
 
 SRC		= hello.asm \
@@ -31,5 +31,4 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc examples/main_hello.c -lasm -L. && ./a.out && rm a.out
-
+	gcc tests/main.c -lasm -L. && ./a.out && rm a.out
