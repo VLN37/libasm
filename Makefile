@@ -4,6 +4,7 @@ NAME 	= libasm.a
 
 SRC		= hello.asm \
 		  ft_strlen.asm \
+		  ft_strcpy.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
