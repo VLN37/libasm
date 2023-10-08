@@ -12,7 +12,7 @@ restore_errno:
     mov r12, rax
     mov dword [r12], 0
 
-read:
+read_label:
     mov rax, __READ
     syscall
     test rax, rax
@@ -22,5 +22,5 @@ read:
 set_errno:
     mov dword [r12], eax
     neg dword [r12]
-    mov rax, [r12]
+    mov rax, -1
     ret

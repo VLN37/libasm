@@ -10,18 +10,17 @@ int main(void) {
 }
 
 void test_strlen(void) {
-    char string[] = "salada";
-    string[2] = '\0';
+    char    string[] = "salada";
 
+    string[2] = '\0';
     assert(ft_strlen("ararar") == 6);
     assert(ft_strlen("") == 0);
     assert(ft_strlen(string) == 2);
 }
 
 void test_strcpy(void) {
-    // copies the immutable strings to the char arrays on the stack
-    char src[10];
-    char dst[10];
+    char    src[10];
+    char    dst[10];
 
     strcpy(src, "abc");
     strcpy(src, "cdef");
@@ -66,12 +65,15 @@ void test_write(void) {
 }
 
 void test_read(void) {
-    char buf[100];
-    int bytes_read;
+    char    buf[100];
+    int     bytes_read;
+    int     len;
 
-    assert(ft_read(50, buf, 99) == EBADF);
+    len = ft_strlen("Goodbye, World\n");
+
+    assert(ft_read(50, buf, 99) == SYS_ERROR);
     perror("read");
-    assert(ft_read(STDIN_FILENO, buf, 99) == ft_strlen("Goodbye, World\n"));
+    assert(ft_read(STDIN_FILENO, buf, 99) == len);
     perror("read");
-    ft_write(STDOUT_FILENO, buf, ft_strlen("Goodbye, World\n"));
+    ft_write(STDOUT_FILENO, buf, len);
 }

@@ -5,6 +5,8 @@
 #include <errno.h>
 #include <unistd.h>
 
+#define SYS_ERROR -1
+
 extern void hello_world();
 extern int ft_strlen();
 extern char *ft_strcpy();
