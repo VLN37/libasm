@@ -3,17 +3,20 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <unistd.h>
 
 extern void hello_world();
 extern int ft_strlen();
 extern char *ft_strcpy();
 extern int ft_strcmp();
 extern size_t ft_write(int, void *, size_t);
+extern size_t ft_read(int, void *, size_t);
 
 void test_strlen();
 void test_strcpy();
 void test_strcmp();
 void test_write();
+void test_read();
 
 int main(void) {
     hello_world();
@@ -21,6 +24,7 @@ int main(void) {
     test_strcpy();
     test_strcmp();
     test_write();
+    test_read();
 }
 
 void test_strlen(void) {
@@ -67,5 +71,12 @@ void test_strcmp(void) {
 }
 
 void test_write(void) {
-    assert(ft_write(1, "Goodbye, World\n", 16) == 16);
+    char *msg = "we're asming it up with elfs and dwarfs\n";
+    assert(ft_write(STDOUT_FILENO, msg, 41) == 41);
+}
+
+void test_read(void) {
+    char buf[100];
+    int bytes_read = ft_read(STDIN_FILENO, buf, 99);
+    ft_write(STDOUT_FILENO, buf, bytes_read);
 }

@@ -7,6 +7,7 @@ SRC		= hello.asm \
 		  ft_strcpy.asm \
 		  ft_strcmp.asm \
 		  ft_write.asm \
+		  ft_read.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
@@ -34,4 +35,4 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc -g3 tests/main.c -lasm -L. && ./a.out
+	gcc -g3 tests/main.c -lasm -L. && echo 'Goodbye, World' | ./a.out
