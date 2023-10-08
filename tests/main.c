@@ -7,6 +7,7 @@ int main(void) {
     test_strcmp();
     test_write();
     test_read();
+    test_strdup();
 }
 
 void test_strlen(void) {
@@ -76,4 +77,13 @@ void test_read(void) {
     assert(ft_read(STDIN_FILENO, buf, 99) == len);
     perror("read");
     ft_write(STDOUT_FILENO, buf, len);
+}
+
+void test_strdup(void) {
+    char    *bis;
+
+    bis = ft_strdup("Goodbye, World\n");
+    ft_write(STDOUT_FILENO, "bis: ", ft_strlen("bis: "));
+    ft_write(STDOUT_FILENO, bis, ft_strlen(bis));
+    free(bis);
 }
