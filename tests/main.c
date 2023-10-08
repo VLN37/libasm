@@ -30,42 +30,31 @@ void test_strlen(void) {
 
 void test_strcpy(void) {
     // copies the immutable strings to the char arrays on the stack
-    char src1[100] = "abc";
-    char dst1[100] = "cdef";
-    char src2[100] = "abc";
-    char dst2[100] = "cdef";
+    char src[10];
+    char dst[10];
 
-    strcpy(src1, "abc");
-    strcpy(src1, "cdef");
-    strcpy(src2, "abc");
-    strcpy(src2, "cdef");
+    strcpy(src, "abc");
+    strcpy(src, "cdef");
+    ft_strcpy(dst, src);
+    assert(strcmp(src, dst) == 0);
 
-    ft_strcpy(dst1, src1);
-    strcpy(dst2, src2);
-    assert(strcmp(dst2, dst1) == 0);
+    strcpy(src, "");
+    strcpy(dst, "cdef");
+    ft_strcpy(dst, src);
+    assert(strcmp(src, dst) == 0);
+    assert(*dst == '\0');
 
-    strcpy(src1, "");
-    strcpy(dst1, "cdef");
-    strcpy(src2, "");
-    strcpy(dst2, "cdef");
-
-    ft_strcpy(dst1, src1);
-    strcpy(dst2, src2);
-    assert(strcmp(dst2, dst1) == 0);
-    assert(*src1 == '\0');
-
-    strcpy(src1, "");
-    strcpy(dst1, "");
-    strcpy(src2, "");
-    strcpy(dst2, "");
-
-    ft_strcpy(dst1, src1);
-    strcpy(dst2, src2);
-    assert(strcmp(dst2, dst1) == 0);
-    assert(*src1 == '\0');
+    strcpy(src, "");
+    strcpy(dst, "");
+    ft_strcpy(dst, src);
+    assert(strcmp(src, dst) == 0);
+    assert(*dst == '\0');
 }
 
 void test_strcmp(void) {
+    assert(ft_strcmp("", "") == 0);
+    assert(ft_strcmp("", "a") < 0);
+    assert(ft_strcmp("a", "") > 0);
     assert(ft_strcmp("a", "a") == 0);
     assert(ft_strcmp("ab", "a") > 0);
     assert(ft_strcmp("a", "ab") < 0);
