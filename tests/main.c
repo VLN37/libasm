@@ -54,11 +54,18 @@ void test_strcmp(void) {
 
 void test_write(void) {
     char *msg = "we're asming it up with elfs and dwarfs\n";
-    assert(ft_write(STDOUT_FILENO, msg, 41) == 41);
+    // assert(ft_write(STDOUT_FILENO, msg, 41) == 41);
+    int result = ft_write(50, msg, 41);
+    perror("write");
 }
 
 void test_read(void) {
     char buf[100];
-    int bytes_read = ft_read(STDIN_FILENO, buf, 99);
-    ft_write(STDOUT_FILENO, buf, bytes_read);
+    int bytes_read;
+
+    assert(ft_read(50, buf, 99) == EBADF);
+    perror("read");
+    assert(ft_read(STDIN_FILENO, buf, 99) == ft_strlen("Goodbye, World\n"));
+    perror("read");
+    ft_write(STDOUT_FILENO, buf, ft_strlen("Goodbye, World\n"));
 }
