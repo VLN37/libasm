@@ -53,9 +53,15 @@ void test_strcmp(void) {
 }
 
 void test_write(void) {
-    char *msg = "we're asming it up with elfs and dwarfs\n";
-    // assert(ft_write(STDOUT_FILENO, msg, 41) == 41);
-    int result = ft_write(50, msg, 41);
+    int     len;
+    char    *msg;
+
+    msg = "assemble!\n";
+    len = ft_strlen(msg);
+
+    assert(ft_write(50, msg, len) == SYS_ERROR);
+    perror("write");
+    assert(ft_write(STDOUT_FILENO, msg, len) == len);
     perror("write");
 }
 
