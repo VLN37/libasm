@@ -6,6 +6,7 @@ SRC		= hello.asm \
 		  ft_strlen.asm \
 		  ft_strcpy.asm \
 		  ft_strcmp.asm \
+		  ft_write.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)

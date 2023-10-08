@@ -2,21 +2,25 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 
 extern void hello_world();
 extern int ft_strlen();
 extern char *ft_strcpy();
 extern int ft_strcmp();
+extern size_t ft_write(int, void *, size_t);
 
 void test_strlen();
 void test_strcpy();
 void test_strcmp();
+void test_write();
 
 int main(void) {
     hello_world();
     test_strlen();
     test_strcpy();
     test_strcmp();
+    test_write();
 }
 
 void test_strlen(void) {
@@ -60,4 +64,8 @@ void test_strcmp(void) {
     assert(ft_strcmp("a", "ab") < 0);
     assert(ft_strcmp("a", "b") < 0);
     assert(ft_strcmp("b", "a") > 0);
+}
+
+void test_write(void) {
+    assert(ft_write(1, "Goodbye, World\n", 16) == 16);
 }
