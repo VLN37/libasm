@@ -10,6 +10,7 @@ SRC		= hello.asm \
 		  ft_read.asm \
 		  ft_strdup.asm \
 		  ft_list_size.asm \
+		  ft_list_add_front.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
