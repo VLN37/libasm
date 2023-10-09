@@ -9,6 +9,7 @@ SRC		= hello.asm \
 		  ft_write.asm \
 		  ft_read.asm \
 		  ft_strdup.asm \
+		  ft_list_size.asm \
 
 OBJDIR	= obj
 OBJ		= $(SRC:%.asm=$(OBJDIR)/%.o)
@@ -37,3 +38,6 @@ re: fclean all
 
 test: all
 	gcc -g3 tests/main.c -lasm -L. && echo 'Goodbye, World' | valgrind ./a.out
+
+test_bonus: all
+	gcc -g3 tests/main_bonus.c -lasm -L. && valgrind ./a.out
