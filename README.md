@@ -66,4 +66,5 @@ All caller registers must b saved in a safe place before calling a function
 - tui enable
 - break (func, asm label, symbols)
 - layout regs or 'i r general' or 'disp /s $eax'
+- dereference value in gdb `x/d $r12`, `x/s $r12` `x/format $r12`
 - run

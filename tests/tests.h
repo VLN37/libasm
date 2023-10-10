@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 #define SYS_ERROR -1
 

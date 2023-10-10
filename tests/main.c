@@ -55,14 +55,30 @@ void test_strcmp(void) {
 void test_write(void) {
     int     len;
     char    *msg;
+    int     fd_good;
+    int     fd_fail;
 
     msg = "assemble!\n";
     len = ft_strlen(msg);
+    fd_good = open("arquivoso", O_CREAT | O_RDWR, 0644);
+    if (fd_good == -1)
+        perror("open");
+    fd_fail = open("unauthorized", O_CREAT | O_RDONLY, 0400);
+    if (fd_fail == -1)
+        perror("open");
 
     assert(ft_write(50, msg, len) == SYS_ERROR);
     perror("write");
+    assert(ft_write(fd_fail, msg, len) == SYS_ERROR);
+    perror("write");
+    assert(ft_write(fd_good, msg, len) == len);
+    perror("write");
     assert(ft_write(STDOUT_FILENO, msg, len) == len);
     perror("write");
+    unlink("arquivoso");
+    unlink("unauthorized");
+    close(fd_fail);
+    close(fd_good);
 }
 
 void test_read(void) {
@@ -77,6 +93,7 @@ void test_read(void) {
     assert(ft_read(STDIN_FILENO, buf, 99) == len);
     perror("read");
     ft_write(STDOUT_FILENO, buf, len);
+
 }
 
 void test_strdup(void) {
