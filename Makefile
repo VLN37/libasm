@@ -48,7 +48,9 @@ fclean: clean
 re: fclean all
 
 test: all
-	gcc -g3 tests/main.c -lasm -L. && echo 'Goodbye, World' | valgrind ./a.out
+	gcc -g3 tests/main.c -L. -lasm && echo 'Goodbye, World' | valgrind ./a.out
+	rm a.out
 
 test_bonus: all
-	gcc -g3 tests/main_bonus.c -lasm_bonus -L. && valgrind ./a.out
+	gcc -g3 tests/main_bonus.c -L. -lasm_bonus && valgrind ./a.out
+	rm a.out

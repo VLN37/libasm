@@ -93,7 +93,6 @@ void test_read(void) {
     assert(ft_read(STDIN_FILENO, buf, 99) == len);
     perror("read");
     ft_write(STDOUT_FILENO, buf, len);
-
 }
 
 void test_strdup(void) {
